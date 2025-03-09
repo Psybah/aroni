@@ -41,7 +41,7 @@ const About = () => {
                 </motion.p>
               </div>
               <div className="w-full lg:w-1/2 h-[300px] md:h-[400px]">
-                <Scene3D />
+                <Scene3D variant="page" />
               </div>
             </div>
           </div>

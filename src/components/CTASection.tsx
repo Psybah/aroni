@@ -1,4 +1,3 @@
-
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -39,13 +38,13 @@ const CTASection = () => {
           </motion.div>
 
           <motion.div 
-            className="lg:w-1/2"
+            className="lg:w-1/2 flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-full p-6 h-[400px] w-[400px] md:h-[500px] md:w-[500px] border border-white/20">
               <Scene3D />
             </div>
           </motion.div>
