@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        scrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -40,9 +40,9 @@ const Navbar = () => {
               className="text-2xl font-bold"
             >
               <img 
-                src={scrolled ? "/logo.png" : "/footer.png"} 
+                src={scrolled ? "/logo.png" : "/header.png"} 
                 alt="Aroni Engineering Logo" 
-                className={`h-12 transition-all duration-300 ${!scrolled && 'invert'}`}
+                className={`h-12 transition-all duration-300 ${!scrolled && ''}`}
               />
             </motion.div>
           </Link>
@@ -86,14 +86,14 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white rounded-b-lg shadow-lg mt-2"
+            className="md:hidden bg-white/90 backdrop-blur-md rounded-b-lg shadow-lg mt-2"
           >
             <div className="flex flex-col py-4">
               {['home', 'services', 'about', 'projects', 'contact'].map((item) => (
                 <Link
                   key={item}
                   to={item === 'home' ? '/' : `/${item}`}
-                  className="py-2 px-4 text-gray-800 hover:text-brand-orange hover:bg-gray-100"
+                  className="py-2 px-4 text-gray-800 hover:text-brand-orange hover:bg-gray-100/50"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
