@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
@@ -12,9 +11,9 @@ import { motion } from 'framer-motion';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main>
+      <main className="flex-grow">
         <HeroSection />
         <ServicesSection />
         <motion.div

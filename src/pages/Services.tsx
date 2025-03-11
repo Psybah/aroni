@@ -120,27 +120,33 @@ const Services = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      
-      <main>
-        <section className="relative min-h-[60vh] flex items-center bg-brand-blue overflow-hidden">
-          <div className="container mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center justify-between">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="w-full md:w-1/2 text-white mb-8 md:mb-0"
-            >
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Our Engineering Services
-              </h1>
-              <p className="text-lg md:text-xl text-gray-200">
-                Comprehensive solutions tailored for industrial excellence and agricultural innovation across Nigeria.
-              </p>
-            </motion.div>
-            <div className="w-full md:w-1/2 h-[300px] md:h-[400px]">
-              <Scene3D variant="page" />
+      <main className="flex-grow">
+        <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900">
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="flex flex-col lg:flex-row items-center">
+              <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
+                <motion.h1 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+                >
+                  Our <span className="text-brand-orange">Services</span>
+                </motion.h1>
+                <motion.p 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-gray-100 text-base md:text-lg max-w-xl"
+                >
+                  Comprehensive solutions tailored for industrial excellence and agricultural innovation across Nigeria.
+                </motion.p>
+              </div>
+              <div className="w-full lg:w-1/2 h-[300px] flex justify-center">
+                <Scene3D variant="page" />
+              </div>
             </div>
           </div>
         </section>
@@ -192,10 +198,10 @@ const Services = () => {
           </div>
         </section>
 
-        <section className="py-12 md:py-16 bg-brand-blue text-white">
+        <section className="py-12 md:py-16 bg-gradient-to-r from-brand-blue to-blue-900 text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              Ready to Elevate Your Engineering Solutions?
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Elevate Your <span className="text-brand-orange">Engineering Solutions?</span>
             </h2>
             <p className="text-gray-200 max-w-2xl mx-auto mb-6 md:mb-8 text-sm md:text-base">
               Contact our engineering team to discuss your project requirements. We'll work with you to develop tailored solutions that meet your specific needs.

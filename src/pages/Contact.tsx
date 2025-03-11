@@ -54,9 +54,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main className="overflow-x-hidden">
+      <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900">
           <div className="container mx-auto px-4 relative z-10">

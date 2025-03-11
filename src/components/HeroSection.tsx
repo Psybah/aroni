@@ -77,7 +77,7 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Link>
             </Button>
-            <Button asChild variant="secondary" className="text-brand-blue hover:bg-white/50 px-6 py-5 rounded-md text-base md:text-lg">
+            <Button asChild variant="outline" className="text-brand-blue hover:bg-white/50 px-6 py-5 rounded-md text-base md:text-lg">
               <Link to="/services">
                 Explore Our Services
               </Link>

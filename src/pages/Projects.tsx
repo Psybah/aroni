@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -80,11 +79,11 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main>
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900 overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900">
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col lg:flex-row items-center">
               <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
@@ -244,10 +243,10 @@ const Projects = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-brand-blue text-white">
+        <section className="py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Have a Project in Mind?
+              Have a <span className="text-brand-orange">Project in Mind?</span>
             </h2>
             <p className="text-gray-200 max-w-2xl mx-auto mb-8">
               Contact our engineering team to discuss your project requirements. We'll work with you to develop tailored solutions that meet your specific needs.

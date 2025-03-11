@@ -38,7 +38,7 @@ const Footer = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.div variants={childVariants}>
-            <h3 className="text-xl font-bold mb-4">Aroni Engineering</h3>
+            <img src="/footer.png" alt="Aroni Engineering Logo" className="h-12 invert" />
             <p className="mb-4 text-gray-300">
               Providing expert hydraulic, pneumatic, and agricultural solutions across Nigeria with a commitment to excellence and innovation.
             </p>

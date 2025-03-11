@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
@@ -40,8 +39,11 @@ const Navbar = () => {
               transition={{ duration: 0.5 }}
               className="text-2xl font-bold"
             >
-              <span className={`${scrolled ? 'text-brand-blue' : 'text-white'}`}>ARONI</span>
-              <span className={`text-brand-orange`}> ENGINEERING</span>
+              <img 
+                src={scrolled ? "/logo.png" : "/footer.png"} 
+                alt="Aroni Engineering Logo" 
+                className={`h-12 transition-all duration-300 ${!scrolled && 'invert'}`}
+              />
             </motion.div>
           </Link>
 

@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Environment, PresentationControls } from '@react-three/drei';
-import { Wrench, Users, History, Award, Target, Globe } from 'lucide-react';
+import { Wrench, Users, History, Award, Target, Globe, Shield, Leaf, ArrowUpCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -10,14 +8,11 @@ import Scene3D from '@/components/Scene3D';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main className="overflow-x-hidden">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900 overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581092335878-2d9ff86ca6dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center mix-blend-overlay"></div>
-          </div>
+        <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900">
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col lg:flex-row items-center">
               <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
@@ -221,7 +216,7 @@ const About = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -232,9 +227,9 @@ const About = () => {
                 <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
                   <Wrench className="w-8 h-8 text-white group-hover:text-brand-orange" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Excellence</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Engineering Excellence</h3>
                 <p className="text-gray-600 group-hover:text-gray-200">
-                  We consistently deliver solutions that exceed expectations, setting the industry standard for quality and reliability.
+                  Precision and quality at every stage, delivering superior engineering solutions that set industry standards.
                 </p>
               </motion.div>
 
@@ -248,9 +243,9 @@ const About = () => {
                 <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
                   <Users className="w-8 h-8 text-white group-hover:text-brand-orange" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Collaboration</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Local Empowerment</h3>
                 <p className="text-gray-600 group-hover:text-gray-200">
-                  We work closely with our clients, understanding their unique needs to create tailored engineering solutions.
+                  Supporting Nigeria's industries and workforce through knowledge transfer and capacity building.
                 </p>
               </motion.div>
 
@@ -262,11 +257,43 @@ const About = () => {
                 className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group"
               >
                 <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
-                  <Target className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                  <Shield className="w-8 h-8 text-white group-hover:text-brand-orange" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Innovation</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Integrity & Transparency</h3>
                 <p className="text-gray-600 group-hover:text-gray-200">
-                  We embrace the latest technologies and methodologies, continuously evolving to stay ahead in a dynamic industry.
+                  Ethical, honest, and straightforward in all dealings with our clients and partners.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
+                  <Leaf className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                </div>
+                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Sustainability & Efficiency</h3>
+                <p className="text-gray-600 group-hover:text-gray-200">
+                  Smart engineering that minimises waste and maximises performance for sustainable solutions.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group md:col-span-2 lg:col-span-1"
+              >
+                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
+                  <ArrowUpCircle className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                </div>
+                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Continuous Improvement</h3>
+                <p className="text-gray-600 group-hover:text-gray-200">
+                  Innovation drives everything we do, constantly evolving and improving our services.
                 </p>
               </motion.div>
             </div>
