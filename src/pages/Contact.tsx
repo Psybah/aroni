@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,15 +7,6 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import Scene3D from '@/components/Scene3D';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
-
-const ContactSphere = () => {
-  return (
-    <mesh rotation={[0, 0, 0]}>
-      <sphereGeometry args={[1, 32, 32]} />
-      <meshStandardMaterial color="#db5e00" metalness={0.8} roughness={0.2} />
-    </mesh>
-  );
-};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -67,7 +56,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900">
           <div className="container mx-auto px-4 relative z-10">
@@ -91,7 +80,7 @@ const Contact = () => {
                   Get in touch with our team to discuss your needs and discover tailored solutions.
                 </motion.p>
               </div>
-              <div className="w-full lg:w-1/2 h-[300px] md:h-[400px]">
+              <div className="w-full lg:w-1/2 h-[300px] flex justify-center">
                 <Scene3D variant="page" />
               </div>
             </div>

@@ -31,7 +31,7 @@ const Footer = () => {
     <footer className="bg-brand-blue text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -59,29 +59,11 @@ const Footer = () => {
           </motion.div>
 
           <motion.div variants={childVariants}>
-            <h3 className="text-xl font-bold mb-4">Our Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/services/hydraulic" className="text-gray-300 hover:text-brand-orange transition-colors">Hydraulic Solutions</Link>
-              </li>
-              <li>
-                <Link to="/services/pneumatic" className="text-gray-300 hover:text-brand-orange transition-colors">Pneumatic Systems</Link>
-              </li>
-              <li>
-                <Link to="/services/agricultural" className="text-gray-300 hover:text-brand-orange transition-colors">Agricultural Equipment</Link>
-              </li>
-              <li>
-                <Link to="/services/maintenance" className="text-gray-300 hover:text-brand-orange transition-colors">Maintenance Services</Link>
-              </li>
-              <li>
-                <Link to="/services/consulting" className="text-gray-300 hover:text-brand-orange transition-colors">Engineering Consulting</Link>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div variants={childVariants}>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
+              <li>
+                <Link to="/" className="text-gray-300 hover:text-brand-orange transition-colors">Home</Link>
+              </li>
               <li>
                 <Link to="/about" className="text-gray-300 hover:text-brand-orange transition-colors">About Us</Link>
               </li>
@@ -89,10 +71,7 @@ const Footer = () => {
                 <Link to="/projects" className="text-gray-300 hover:text-brand-orange transition-colors">Projects</Link>
               </li>
               <li>
-                <Link to="/resources" className="text-gray-300 hover:text-brand-orange transition-colors">Resources</Link>
-              </li>
-              <li>
-                <Link to="/careers" className="text-gray-300 hover:text-brand-orange transition-colors">Careers</Link>
+                <Link to="/services" className="text-gray-300 hover:text-brand-orange transition-colors">Services</Link>
               </li>
               <li>
                 <Link to="/contact" className="text-gray-300 hover:text-brand-orange transition-colors">Contact Us</Link>

@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, PresentationControls } from '@react-three/drei';
@@ -13,7 +12,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
@@ -40,7 +39,7 @@ const About = () => {
                   delivering innovative solutions that drive industrial progress across West Africa.
                 </motion.p>
               </div>
-              <div className="w-full lg:w-1/2 h-[300px] md:h-[400px]">
+              <div className="w-full lg:w-1/2 h-[300px] flex justify-center">
                 <Scene3D variant="page" />
               </div>
             </div>

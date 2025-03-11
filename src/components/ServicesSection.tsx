@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Droplet, Wind, Tractor, Settings, Wrench, Users } from 'lucide-react';
+import { ArrowRight, Droplet, Wind, Users } from 'lucide-react';
 
 const services = [
   {
@@ -19,30 +19,6 @@ const services = [
     icon: Wind,
     color: 'text-cyan-500',
     bgColor: 'bg-cyan-100',
-  },
-  {
-    id: 'agricultural',
-    title: 'Agricultural Equipment',
-    description: 'Specialized agricultural machinery and implements designed for Nigerian farming conditions.',
-    icon: Tractor,
-    color: 'text-green-500',
-    bgColor: 'bg-green-100',
-  },
-  {
-    id: 'maintenance',
-    title: 'Maintenance Services',
-    description: 'Preventive and corrective maintenance programs to maximize equipment uptime and lifespan.',
-    icon: Settings,
-    color: 'text-purple-500',
-    bgColor: 'bg-purple-100',
-  },
-  {
-    id: 'repairs',
-    title: 'Repair & Rebuilding',
-    description: 'Expert repair services for hydraulic cylinders, pumps, motors, and pneumatic components.',
-    icon: Wrench, // Changed from Tool to Wrench
-    color: 'text-red-500',
-    bgColor: 'bg-red-100',
   },
   {
     id: 'consulting',
@@ -113,12 +89,6 @@ const ServicesSection = () => {
                 </div>
                 <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-brand-blue">{service.title}</h3>
                 <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-6">{service.description}</p>
-                <Link 
-                  to={`/services/${service.id}`} 
-                  className="inline-flex items-center text-brand-orange font-medium text-sm md:text-base hover:underline"
-                >
-                  Learn More <ArrowRight className="ml-1 md:ml-2 w-3 h-3 md:w-4 md:h-4" />
-                </Link>
               </div>
             </motion.div>
           ))}

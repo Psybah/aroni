@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react'
 import { useSpring } from 'framer-motion'
 
@@ -18,10 +19,14 @@ export function Scene3D({ className = "", variant = 'cta' }: GlobeProps) {
     damping: 30,
     stiffness: 200,
   })
+  
+  // Auto-rotation reference and state
+  const autoRotateRef = useRef(true)
+  const currentPhiRef = useRef(0)
 
   useEffect(() => {
     let width = 0
-    let currentPhi = 0
+    
     const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth)
     
     import('cobe').then(({ default: createGlobe }) => {
@@ -51,11 +56,13 @@ export function Scene3D({ className = "", variant = 'cta' }: GlobeProps) {
           { location: [35.6762, 139.6503], size: 0.1 },
         ],
         onRender: (state: any) => {
-          if (!pointerInteracting.current) {
-            currentPhi += 0.003
-            state.phi = currentPhi
+          // Auto-rotate when not interacting
+          if (!pointerInteracting.current && autoRotateRef.current) {
+            currentPhiRef.current += 0.005
+            state.phi = currentPhiRef.current
+          } else {
+            state.phi = phi.get()
           }
-          state.phi = phi.get()
           state.theta = theta.get()
           state.width = width * 2
           state.height = width * 2
@@ -89,27 +96,37 @@ export function Scene3D({ className = "", variant = 'cta' }: GlobeProps) {
         onPointerDown={(e) => {
           pointerInteracting.current = e.clientX - pointerInteractionMovement.current
           canvasRef.current!.style.cursor = 'grabbing'
+          // Pause auto-rotation when user interacts
+          autoRotateRef.current = false
         }}
         onPointerUp={() => {
           pointerInteracting.current = null
           canvasRef.current!.style.cursor = 'grab'
+          // Resume auto-rotation after 2 seconds of no interaction
+          setTimeout(() => {
+            autoRotateRef.current = true
+          }, 2000)
         }}
         onPointerOut={() => {
           pointerInteracting.current = null
           canvasRef.current!.style.cursor = 'grab'
+          // Resume auto-rotation after 2 seconds of no interaction
+          setTimeout(() => {
+            autoRotateRef.current = true
+          }, 2000)
         }}
         onMouseMove={(e) => {
           if (pointerInteracting.current !== null) {
             const delta = e.clientX - pointerInteracting.current
             pointerInteractionMovement.current = delta
-            phi.set(delta * 0.01)
+            phi.set(currentPhiRef.current + delta * 0.01)
           }
         }}
         onTouchMove={(e) => {
           if (pointerInteracting.current !== null && e.touches[0]) {
             const delta = e.touches[0].clientX - pointerInteracting.current
             pointerInteractionMovement.current = delta
-            phi.set(delta * 0.01)
+            phi.set(currentPhiRef.current + delta * 0.01)
           }
         }}
       />

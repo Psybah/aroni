@@ -1,3 +1,4 @@
+
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -29,7 +30,7 @@ const CTASection = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="text-brand-blue hover:bg-white/50 px-6 py-5 rounded-md text-base md:text-lg">
+              <Button asChild variant="outline" className="border-white text-white hover:bg-white/20 px-6 py-5 rounded-md text-base md:text-lg">
                 <Link to="/projects">
                   View Our Projects
                 </Link>
@@ -44,7 +45,7 @@ const CTASection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative bg-white/10 backdrop-blur-sm rounded-full p-6 h-[400px] w-[400px] md:h-[500px] md:w-[500px] border border-white/20">
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-full p-6 max-w-full h-[350px] w-[350px] md:h-[450px] md:w-[450px] border border-white/20">
               <Scene3D />
             </div>
           </motion.div>
