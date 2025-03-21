@@ -18,19 +18,19 @@ const CTASection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Elevate Your <span className="text-brand-orange">Engineering Solutions?</span>
+              Ready to Solve Your <span className="text-brand-orange">Engineering Challenges?</span>
             </h2>
             <p className="text-lg text-gray-200 mb-8 max-w-xl">
-              Contact us today to discuss your project requirements. Our expert team is ready to provide tailored solutions that meet your specific needs and exceed your expectations.
+              Book a free consultative call with our engineering experts. We'll analyze your needs and recommend solutions tailored to your business requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild className="bg-brand-orange hover:bg-brand-orange/90 text-white px-8 py-6 rounded-md text-lg">
                 <Link to="/contact">
-                  Schedule a Consultation
+                  Book a Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="text-brand-blue hover:bg-white/50 px-6 py-5 rounded-md text-base md:text-lg">
+              <Button asChild variant="outline" className="text-white hover:bg-white/10 border-white px-6 py-5 rounded-md text-base md:text-lg">
                 <Link to="/projects">
                   View Our Projects
                 </Link>

@@ -7,26 +7,20 @@ const services = [
   {
     id: 'hydraulic',
     title: 'Hydraulic Solutions',
-    description: 'Advanced hydraulic systems for industrial machinery with precision control and high-performance output.',
+    description: 'We design and implement custom hydraulic systems for industrial machinery with precision control and high-performance output.',
     icon: Droplet,
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-100',
   },
   {
     id: 'pneumatic',
     title: 'Pneumatic Systems',
-    description: 'Efficient pneumatic technology for automation and power transmission with clean and reliable operation.',
+    description: 'Our pneumatic solutions provide efficient automation and power transmission with reliable operation for manufacturing processes.',
     icon: Wind,
-    color: 'text-cyan-500',
-    bgColor: 'bg-cyan-100',
   },
   {
     id: 'consulting',
     title: 'Engineering Consulting',
-    description: 'Technical consulting services for system design, troubleshooting, and efficiency optimization.',
+    description: 'We offer technical consulting services for system design, troubleshooting, and efficiency optimization across industries.',
     icon: Users,
-    color: 'text-amber-500',
-    bgColor: 'bg-amber-100',
   },
 ];
 
@@ -80,16 +74,14 @@ const ServicesSection = () => {
           {services.map((service) => (
             <motion.div 
               key={service.id} 
-              className="service-card bg-white rounded-lg shadow-md overflow-hidden"
+              className="bg-white rounded-lg shadow-md overflow-hidden p-6"
               variants={itemVariants}
             >
-              <div className="p-4 md:p-6">
-                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full ${service.bgColor} flex items-center justify-center mb-4 md:mb-6`}>
-                  <service.icon className={`w-6 h-6 md:w-8 md:h-8 ${service.color}`} />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-brand-blue">{service.title}</h3>
-                <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-6">{service.description}</p>
+              <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-4">
+                <service.icon className="w-7 h-7 text-brand-blue" />
               </div>
+              <h3 className="text-xl font-bold mb-3 text-brand-blue">{service.title}</h3>
+              <p className="text-gray-600 mb-6">{service.description}</p>
             </motion.div>
           ))}
         </motion.div>

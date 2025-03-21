@@ -1,32 +1,25 @@
+
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
 interface WhatsAppButtonProps {
   phoneNumber: string;
   accountName: string;
-  avatar?: string;
 }
 
-const WhatsAppButton = ({ 
-  phoneNumber = "+234 000 0000", 
-  accountName = "Aroni Engineering",
-  avatar = ""
-}: WhatsAppButtonProps) => {
+const WhatsAppButton = ({ phoneNumber, accountName }: WhatsAppButtonProps) => {
   return (
-    <div className="relative">
-      <div className="absolute w-12 h-12 bg-white rounded-full" style={{zIndex: 999999}} />
+    <div className="fixed bottom-6 right-6 z-50">
       <FloatingWhatsApp 
         phoneNumber={phoneNumber}
         accountName={accountName}
-        avatar={avatar || "/favicon.ico"}
+        avatar="/logo.png"
         statusMessage="Typically replies within 1 hour"
-        chatMessage="Hello! 👋 How can we help you with your engineering needs today?"
-        placeholder="Type your message here..."
-        darkMode={true}
+        chatMessage="Hello! How can we help you today?"
         allowClickAway={true}
-        allowEsc={true}
-        notification={true}
-        notificationDelay={30}
-        notificationSound={true}
+        style={{
+          width: '60px',
+          height: '60px',
+        }}
       />
     </div>
   );

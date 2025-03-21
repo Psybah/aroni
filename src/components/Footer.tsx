@@ -27,17 +27,40 @@ const Footer = () => {
     }
   };
 
+  const footerLinks = [
+    {
+      title: "Quick Links",
+      links: [
+        { label: "Home", path: "/" },
+        { label: "About Us", path: "/about" },
+        { label: "Services", path: "/services" },
+        { label: "Products", path: "/products" },
+        { label: "Industries", path: "/industries" },
+        { label: "Projects", path: "/projects" },
+        { label: "Contact Us", path: "/contact" }
+      ]
+    },
+    {
+      title: "Contact",
+      links: [
+        { label: "23 Engineering Avenue, Lagos", path: "#", icon: MapPin },
+        { label: "+234 803 123 4567", path: "tel:+2348031234567", icon: Phone },
+        { label: "info@aroniengineering.com", path: "mailto:info@aroniengineering.com", icon: Mail }
+      ]
+    }
+  ];
+
   return (
     <footer className="bg-brand-blue text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.div variants={childVariants}>
+          <motion.div variants={childVariants} className="md:col-span-1">
             <img src="/footer.png" alt="Aroni Engineering Logo" className="h-12 invert" />
             <p className="mb-4 text-gray-300">
               Providing expert hydraulic, pneumatic, and agricultural solutions across Nigeria with a commitment to excellence and innovation.
@@ -58,44 +81,21 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          <motion.div variants={childVariants}>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-brand-orange transition-colors">Home</Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-brand-orange transition-colors">About Us</Link>
-              </li>
-              <li>
-                <Link to="/projects" className="text-gray-300 hover:text-brand-orange transition-colors">Projects</Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-300 hover:text-brand-orange transition-colors">Services</Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-brand-orange transition-colors">Contact Us</Link>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div variants={childVariants}>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin className="mr-2 text-brand-orange shrink-0" size={20} />
-                <span className="text-gray-300">123 Engineering Avenue, Lagos, Nigeria</span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="mr-2 text-brand-orange shrink-0" size={20} />
-                <span className="text-gray-300">+234 000 0000</span>
-              </li>
-              <li className="flex items-center">
-                <Mail className="mr-2 text-brand-orange shrink-0" size={20} />
-                <span className="text-gray-300">info@aroniengineeringservices.com</span>
-              </li>
-            </ul>
-          </motion.div>
+          {footerLinks.map((section, index) => (
+            <motion.div key={index} variants={childVariants}>
+              <h3 className="text-xl font-bold mb-4">{section.title}</h3>
+              <ul className="space-y-2">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <Link to={link.path} className="text-gray-300 hover:text-brand-orange transition-colors flex items-center">
+                      {link.icon && <link.icon className="mr-2" size={16} />}
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </motion.div>
 
         <div className="border-t border-gray-700 mt-12 pt-8">

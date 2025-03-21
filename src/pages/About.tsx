@@ -1,9 +1,11 @@
+
 import { motion } from 'framer-motion';
-import { Wrench, Users, History, Award, Target, Globe, Shield, Leaf, ArrowUpCircle } from 'lucide-react';
+import { Wrench, Users, Shield, Leaf, ArrowUpCircle, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { Suspense, useRef } from 'react';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import Scene3D from '@/components/Scene3D';
 
 const About = () => {
@@ -22,7 +24,7 @@ const About = () => {
                   transition={{ duration: 0.8 }}
                   className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
                 >
-                  Our Story of <span className="text-brand-orange">Engineering Excellence</span>
+                  Global <span className="text-brand-orange">Excellence</span>, Locally Crafted
                 </motion.h1>
                 <motion.p 
                   initial={{ opacity: 0, y: 30 }}
@@ -30,8 +32,7 @@ const About = () => {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="text-gray-100 text-base md:text-lg max-w-xl"
                 >
-                  For over two decades, Aroni Engineering has been at the forefront of Nigeria's engineering landscape, 
-                  delivering innovative solutions that drive industrial progress across West Africa.
+                  Aroni was founded to bridge the gap in Nigeria's engineering sector, providing locally manufactured solutions that meet international quality standards. With 90% of agricultural and industrial equipment imported, we saw the opportunity to build a stronger local industry through expertise, innovation, and technical excellence.
                 </motion.p>
               </div>
               <div className="w-full lg:w-1/2 h-[300px] flex justify-center">
@@ -41,93 +42,77 @@ const About = () => {
           </div>
         </section>
 
-        {/* History Section */}
+        {/* Expertise Section */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-center mb-12 md:mb-16"
+              className="text-center mb-16"
             >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-blue mb-4">
-                Our <span className="text-brand-orange">Journey</span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-blue mb-6">
+                Our <span className="text-brand-orange">Expertise</span> in Action
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                From humble beginnings to becoming Nigeria's leading engineering services provider.
+              <p className="text-gray-700 max-w-3xl mx-auto text-lg">
+                We specialise in fluid mechanics, industrial automation, and precision fabrication—delivering solutions for businesses that demand efficiency, durability, and reliability.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="flex flex-col items-center md:items-start text-center md:text-left"
+                transition={{ duration: 0.5 }}
+                className="bg-gray-50 p-8 rounded-lg text-center"
               >
-                <div className="bg-brand-blue/10 p-4 rounded-full mb-4">
-                  <History className="w-8 h-8 text-brand-blue" />
+                <div className="w-16 h-16 bg-brand-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Wrench className="w-8 h-8 text-brand-blue" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-brand-blue mb-2">Founded in 1998</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Fluid Mechanics</h3>
                 <p className="text-gray-600">
-                  Established by a team of visionary engineers with a mission to transform Nigeria's industrial landscape through cutting-edge engineering solutions.
+                  We engineer hydraulic and pneumatic systems that deliver precise power and control for industrial applications.
                 </p>
               </motion.div>
 
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="flex flex-col items-center md:items-start text-center md:text-left"
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-gray-50 p-8 rounded-lg text-center"
               >
-                <div className="bg-brand-blue/10 p-4 rounded-full mb-4">
-                  <Target className="w-8 h-8 text-brand-blue" />
+                <div className="w-16 h-16 bg-brand-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Users className="w-8 h-8 text-brand-blue" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-brand-blue mb-2">Expanding Horizons</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Industrial Automation</h3>
                 <p className="text-gray-600">
-                  By 2005, we had established offices in major Nigerian cities and began extending our services to neighboring West African countries.
+                  Our automation solutions streamline production processes and improve operational efficiency.
                 </p>
               </motion.div>
 
-              <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-col items-center md:items-start text-center md:text-left"
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-gray-50 p-8 rounded-lg text-center"
               >
-                <div className="bg-brand-blue/10 p-4 rounded-full mb-4">
-                  <Award className="w-8 h-8 text-brand-blue" />
+                <div className="w-16 h-16 bg-brand-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Shield className="w-8 h-8 text-brand-blue" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-brand-blue mb-2">Industry Recognition</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Precision Fabrication</h3>
                 <p className="text-gray-600">
-                  Our commitment to excellence has earned us prestigious accolades, including the Nigerian Engineering Excellence Award for three consecutive years.
-                </p>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-col items-center md:items-start text-center md:text-left"
-              >
-                <div className="bg-brand-blue/10 p-4 rounded-full mb-4">
-                  <Globe className="w-8 h-8 text-brand-blue" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-brand-blue mb-2">Today & Tomorrow</h3>
-                <p className="text-gray-600">
-                  With over 200 employees and a portfolio of 1000+ successful projects, we continue to innovate and lead the engineering services sector in West Africa.
+                  We create high-quality components and complete systems built to exacting specifications.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Team Section */}
+        {/* Values Section */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container mx-auto px-4">
             <motion.div 
@@ -138,98 +123,24 @@ const About = () => {
               className="text-center mb-12 md:mb-16"
             >
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-blue mb-4">
-                Our <span className="text-brand-orange">Leadership Team</span>
+                Our <span className="text-brand-orange">Values</span>
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Meet the visionaries driving our mission to transform industries through engineering excellence.
-              </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  name: "Chukwudi Aroni",
-                  position: "Founder & CEO",
-                  bio: "With 30+ years in engineering, Chukwudi's vision and leadership have established Aroni as Nigeria's premier engineering firm.",
-                  seed: "chukwudi"
-                },
-                {
-                  name: "Folake Adeyemi",
-                  position: "Chief Operations Officer",
-                  bio: "Folake oversees all operations, ensuring efficient delivery of services while maintaining our high quality standards.",
-                  seed: "folake"
-                },
-                {
-                  name: "Ibrahim Mohammed",
-                  position: "Technical Director",
-                  bio: "A mechanical engineering expert with vast experience in hydraulic systems implementation across various industries.",
-                  seed: "ibrahim"
-                },
-                {
-                  name: "Ngozi Okonkwo",
-                  position: "Head of Innovation",
-                  bio: "Leading our R&D initiatives, Ngozi ensures Aroni remains at the cutting edge of engineering technology.",
-                  seed: "ngozi"
-                }
-              ].map((member, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="h-64 bg-gray-100 flex items-center justify-center">
-                    <img 
-                      src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${member.seed}`} 
-                      alt={member.name} 
-                      className="w-40 h-40"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-brand-blue mb-1">{member.name}</h3>
-                    <p className="text-brand-orange font-medium mb-3">{member.position}</p>
-                    <p className="text-gray-600 text-sm">{member.bio}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Values Section */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4">
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-12 md:mb-16"
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-blue mb-4">
-                Our <span className="text-brand-orange">Core Values</span>
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                The principles that guide our approach and define our company culture.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group"
+                className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
-                  <Wrench className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+                  <Wrench className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Engineering Excellence</h3>
-                <p className="text-gray-600 group-hover:text-gray-200">
-                  Precision and quality at every stage, delivering superior engineering solutions that set industry standards.
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Engineering Excellence</h3>
+                <p className="text-gray-600">
+                  Every product meets international standards.
                 </p>
               </motion.div>
 
@@ -238,14 +149,14 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group"
+                className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
-                  <Users className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+                  <Users className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Local Empowerment</h3>
-                <p className="text-gray-600 group-hover:text-gray-200">
-                  Supporting Nigeria's industries and workforce through knowledge transfer and capacity building.
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Local Empowerment</h3>
+                <p className="text-gray-600">
+                  Supporting Nigeria's industries through skilled manpower development.
                 </p>
               </motion.div>
 
@@ -254,14 +165,14 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group"
+                className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
-                  <Shield className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+                  <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Integrity & Transparency</h3>
-                <p className="text-gray-600 group-hover:text-gray-200">
-                  Ethical, honest, and straightforward in all dealings with our clients and partners.
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Integrity & Transparency</h3>
+                <p className="text-gray-600">
+                  Ethical, straightforward business practices.
                 </p>
               </motion.div>
 
@@ -270,14 +181,14 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group"
+                className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
-                  <Leaf className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+                  <Leaf className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Sustainability & Efficiency</h3>
-                <p className="text-gray-600 group-hover:text-gray-200">
-                  Smart engineering that minimises waste and maximises performance for sustainable solutions.
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Sustainability & Efficiency</h3>
+                <p className="text-gray-600">
+                  Smart engineering to maximise performance and longevity.
                 </p>
               </motion.div>
 
@@ -286,16 +197,25 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="bg-gray-50 p-8 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 hover:scale-105 group md:col-span-2 lg:col-span-1"
+                className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:col-span-2 lg:col-span-1"
               >
-                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white">
-                  <ArrowUpCircle className="w-8 h-8 text-white group-hover:text-brand-orange" />
+                <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+                  <ArrowUpCircle className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-white">Continuous Improvement</h3>
-                <p className="text-gray-600 group-hover:text-gray-200">
-                  Innovation drives everything we do, constantly evolving and improving our services.
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Continuous Innovation</h3>
+                <p className="text-gray-600">
+                  Advancing Nigeria's engineering sector through technology.
                 </p>
               </motion.div>
+            </div>
+
+            <div className="text-center">
+              <Button asChild className="bg-brand-orange hover:bg-brand-orange/90 text-white px-6 py-5 rounded-md text-base">
+                <Link to="/contact">
+                  Book a Free Consultative Call
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>

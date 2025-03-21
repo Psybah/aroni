@@ -50,8 +50,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight">
-              Advanced Engineering Solutions for{' '}
-              <span className="text-brand-orange">Industrial Excellence</span>
+              Engineering solutions that keep your business{' '}
+              <span className="text-brand-orange">running</span>
             </h1>
           </motion.div>
 
@@ -61,7 +61,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-base md:text-xl text-gray-200 mb-6 md:mb-8">
-              Specialized in hydraulic, pneumatic, and agricultural solutions with cutting-edge technology and unmatched expertise.
+              Eliminate costly downtime and inefficiencies with our high-performance hydraulic and pneumatic systems. Built locally, crafted for durability, and engineered to meet international standards.
             </p>
           </motion.div>
 
@@ -73,7 +73,7 @@ const HeroSection = () => {
           >
             <Button asChild className="bg-brand-orange hover:bg-brand-orange/90 text-white px-6 py-5 rounded-md text-base md:text-lg">
               <Link to="/contact">
-                Get a Free Consultation
+                Book a Call
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Link>
             </Button>

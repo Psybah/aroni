@@ -77,8 +77,8 @@ export function Scene3D({ className = "", variant = 'cta' }: GlobeProps) {
   }, [phi, theta])
 
   const containerClasses = variant === 'cta' 
-    ? "w-full h-full flex items-center justify-center"
-    : "w-full h-[400px] md:h-[500px] flex items-center justify-center";
+    ? "w-full h-full flex items-center justify-center overflow-hidden"
+    : "w-full h-[300px] md:h-[500px] flex items-center justify-center overflow-hidden";
 
   return (
     <div className={containerClasses}>
@@ -86,8 +86,10 @@ export function Scene3D({ className = "", variant = 'cta' }: GlobeProps) {
         ref={canvasRef}
         className={className}
         style={{
-          width: variant === 'cta' ? '100%' : '400px',
-          height: variant === 'cta' ? '100%' : '400px',
+          width: variant === 'cta' ? '100%' : '100%', // Changed from fixed width to 100%
+          height: variant === 'cta' ? '100%' : '100%', // Changed from fixed height to 100%
+          maxWidth: variant === 'cta' ? '100%' : '400px',
+          maxHeight: variant === 'cta' ? '100%' : '400px',
           contain: 'layout paint size',
           opacity: 1,
           cursor: 'grab',
