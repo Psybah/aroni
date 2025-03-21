@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react'
 import { useSpring } from 'framer-motion'
 
@@ -78,7 +77,7 @@ export function Scene3D({ className = "", variant = 'cta' }: GlobeProps) {
 
   const containerClasses = variant === 'cta' 
     ? "w-full h-full flex items-center justify-center overflow-hidden"
-    : "w-full h-[300px] md:h-[500px] flex items-center justify-center overflow-hidden";
+    : "w-full h-full flex items-center justify-center overflow-visible";
 
   return (
     <div className={containerClasses}>
@@ -86,14 +85,15 @@ export function Scene3D({ className = "", variant = 'cta' }: GlobeProps) {
         ref={canvasRef}
         className={className}
         style={{
-          width: variant === 'cta' ? '100%' : '100%', // Changed from fixed width to 100%
-          height: variant === 'cta' ? '100%' : '100%', // Changed from fixed height to 100%
-          maxWidth: variant === 'cta' ? '100%' : '400px',
-          maxHeight: variant === 'cta' ? '100%' : '400px',
-          contain: 'layout paint size',
+          width: variant === 'cta' ? '100%' : '100%',
+          height: variant === 'cta' ? '100%' : '100%',
+          maxWidth: variant === 'cta' ? '100%' : '350px',
+          maxHeight: variant === 'cta' ? '100%' : '350px',
+          contain: variant === 'cta' ? 'layout paint size' : 'paint',
           opacity: 1,
           cursor: 'grab',
           background: 'transparent',
+          transform: variant === 'page' ? 'scale(1.2)' : 'none'
         }}
         onPointerDown={(e) => {
           pointerInteracting.current = e.clientX - pointerInteractionMovement.current

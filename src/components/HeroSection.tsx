@@ -1,4 +1,3 @@
-
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -6,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[80vh] md:h-screen flex items-center bg-gray-900 overflow-hidden">
+    <section className="relative min-h-[90vh] md:h-screen flex items-center bg-gray-900 overflow-hidden pt-20 md:pt-0">
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0"

@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -47,7 +46,7 @@ const Projects = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-r from-brand-blue to-blue-900">
+        <section className="relative pt-20 md:pt-24 pb-12 md:pb-24 bg-gradient-to-r from-brand-blue to-blue-900">
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col lg:flex-row items-center">
               <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
@@ -68,7 +67,7 @@ const Projects = () => {
                   Case studies showcasing our successful implementations across various industries.
                 </motion.p>
               </div>
-              <div className="w-full lg:w-1/2 h-[300px] flex justify-center">
+              <div className="w-full lg:w-1/2 h-[350px] md:h-[400px] flex justify-center items-center">
                 <Scene3D variant="page" />
               </div>
             </div>
