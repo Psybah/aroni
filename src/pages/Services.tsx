@@ -99,7 +99,7 @@ const Services = () => {
                 className="w-full lg:w-1/2 mt-6 lg:mt-0"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                  src="./hydraulics.jpg" 
                   alt="Hydraulic Systems" 
                   className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover rounded-lg shadow-xl"
                 />
@@ -165,7 +165,7 @@ const Services = () => {
                 className="w-full lg:w-1/2 lg:order-1 mt-6 lg:mt-0"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                  src="./fabrication.jpg" 
                   alt="Fabrication & Manufacturing" 
                   className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover rounded-lg shadow-xl"
                 />
@@ -231,7 +231,7 @@ const Services = () => {
                 className="w-full lg:w-1/2 mt-6 lg:mt-0"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                  src="./consultation.jpg" 
                   alt="Consulting & Training" 
                   className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover rounded-lg shadow-xl"
                 />

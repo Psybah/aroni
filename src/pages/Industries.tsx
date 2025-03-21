@@ -34,7 +34,7 @@ const industriesData = [
     id: 'manufacturing',
     title: 'Manufacturing',
     description: 'We provide industrial automation, process optimisation, and fluid mechanics expertise.',
-    image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    image: './manufacture.jpg',
     services: [
       {
         title: 'Industrial Process Engineering', 

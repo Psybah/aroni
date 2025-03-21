@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Navbar from '@/components/Navbar';
@@ -6,6 +5,69 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Scene3D from '@/components/Scene3D';
 import ContactForm from '@/components/ContactForm';
+
+// Add this interface for process steps
+interface ProcessStep {
+  id: number;
+  title: string;
+  description: string;
+}
+
+const processSteps: ProcessStep[] = [
+  {
+    id: 1,
+    title: "Initial Consultation",
+    description: "We discuss your engineering needs, challenges, and goals to understand the scope of your project."
+  },
+  {
+    id: 2,
+    title: "Solution Design",
+    description: "Our engineering team develops a custom solution tailored to your specific requirements."
+  },
+  {
+    id: 3,
+    title: "Implementation",
+    description: "We fabricate and install your custom-engineered solution with precision and attention to detail."
+  },
+  {
+    id: 4,
+    title: "Ongoing Support",
+    description: "We provide maintenance, training, and continued support to ensure optimal performance."
+  }
+];
+
+const ProcessStep = ({ step, index }: { step: ProcessStep; index: number }) => {
+  const isOdd = index % 2 !== 0;
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0, x: isOdd ? 30 : -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="relative flex flex-col md:flex-row items-start w-full gap-4"
+    >
+      {/* Number Circle - Centered on mobile, on line for desktop */}
+      <div className="flex items-center justify-center h-8 w-8 rounded-full bg-brand-blue text-white 
+        absolute left-4 md:left-1/2 md:-translate-x-1/2 z-10">
+        {step.id}
+      </div>
+
+      {/* Content Container */}
+      <div className={`
+        w-full pl-16 md:pl-0 md:w-[45%]
+        ${isOdd ? 'md:ml-auto' : 'md:mr-auto'}
+      `}>
+        <h3 className="text-lg md:text-xl font-bold text-brand-blue mb-2">
+          {step.title}
+        </h3>
+        <p className="text-sm md:text-base text-gray-600">
+          {step.description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
 
 const GetStarted = () => {
   return (
@@ -63,10 +125,10 @@ const GetStarted = () => {
                       <MapPin className="w-5 h-5 md:w-6 md:h-6 text-brand-blue" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-base md:text-lg text-brand-blue mb-1">Our Headquarters</h3>
+                      <h3 className="font-semibold text-base md:text-lg text-brand-blue mb-1">Registered Address</h3>
                       <p className="text-sm md:text-base text-gray-600">
-                        15 Engineering Avenue<br />
-                        Victoria Island, Lagos<br />
+                        Wemabod Estate<br />
+                        Ikeja, Lagos<br />
                         Nigeria
                       </p>
                     </div>
@@ -79,8 +141,8 @@ const GetStarted = () => {
                     <div>
                       <h3 className="font-semibold text-base md:text-lg text-brand-blue mb-1">Phone</h3>
                       <p className="text-sm md:text-base text-gray-600">
-                        Main: +234 123 4567<br />
-                        Support: +234 765 4321
+                        Main: +234 803 123 4567<br />
+                        Support: +234 803 123 4567
                       </p>
                     </div>
                   </div>
@@ -92,8 +154,7 @@ const GetStarted = () => {
                     <div>
                       <h3 className="font-semibold text-base md:text-lg text-brand-blue mb-1">Email</h3>
                       <p className="text-sm md:text-base text-gray-600">
-                        Info: info@aroniengineering.com<br />
-                        Support: support@aroniengineering.com
+                        Info: info@aroni-engineering.com
                       </p>
                     </div>
                   </div>
@@ -132,89 +193,16 @@ const GetStarted = () => {
               </p>
             </motion.div>
             
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                {/* Vertical line */}
-                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-brand-blue/20 -ml-px"></div>
-                
-                {/* Steps */}
-                <div className="space-y-10 md:space-y-0">
-                  {/* Step 1 */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="relative flex items-start md:flex-row-reverse md:mb-16"
-                  >
-                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-brand-blue text-white absolute left-0 md:left-1/2 -ml-4 md:-ml-4 mt-1.5 z-10">
-                      1
-                    </div>
-                    <div className="pl-12 md:pl-0 md:pr-12 md:w-1/2">
-                      <h3 className="text-lg md:text-xl font-bold text-brand-blue mb-2">Initial Consultation</h3>
-                      <p className="text-sm md:text-base text-gray-600">
-                        We discuss your engineering needs, challenges, and goals to understand the scope of your project.
-                      </p>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Step 2 */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="relative flex items-start mt-10 md:mt-0 md:mb-16"
-                  >
-                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-brand-blue text-white absolute left-0 md:left-1/2 -ml-4 md:-ml-4 mt-1.5 z-10">
-                      2
-                    </div>
-                    <div className="pl-12 md:w-1/2">
-                      <h3 className="text-lg md:text-xl font-bold text-brand-blue mb-2">Solution Design</h3>
-                      <p className="text-sm md:text-base text-gray-600">
-                        Our engineering team develops a custom solution tailored to your specific requirements.
-                      </p>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Step 3 */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="relative flex items-start md:flex-row-reverse mt-10 md:mt-0 md:mb-16"
-                  >
-                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-brand-blue text-white absolute left-0 md:left-1/2 -ml-4 md:-ml-4 mt-1.5 z-10">
-                      3
-                    </div>
-                    <div className="pl-12 md:pl-0 md:pr-12 md:w-1/2">
-                      <h3 className="text-lg md:text-xl font-bold text-brand-blue mb-2">Implementation</h3>
-                      <p className="text-sm md:text-base text-gray-600">
-                        We fabricate and install your custom-engineered solution with precision and attention to detail.
-                      </p>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Step 4 */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="relative flex items-start mt-10 md:mt-0"
-                  >
-                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-brand-blue text-white absolute left-0 md:left-1/2 -ml-4 md:-ml-4 mt-1.5 z-10">
-                      4
-                    </div>
-                    <div className="pl-12 md:w-1/2">
-                      <h3 className="text-lg md:text-xl font-bold text-brand-blue mb-2">Ongoing Support</h3>
-                      <p className="text-sm md:text-base text-gray-600">
-                        We provide maintenance, training, and continued support to ensure optimal performance.
-                      </p>
-                    </div>
-                  </motion.div>
-                </div>
+            <div className="max-w-4xl mx-auto relative">
+              {/* Vertical line */}
+              <div className="absolute left-8 md:left-1/2 top-0 h-full w-0.5 bg-brand-blue/20 
+                transform -translate-x-1/2" />
+              
+              {/* Process Steps */}
+              <div className="space-y-16 md:space-y-24">
+                {processSteps.map((step, index) => (
+                  <ProcessStep key={step.id} step={step} index={index} />
+                ))}
               </div>
             </div>
           </div>

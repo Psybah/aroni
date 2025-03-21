@@ -138,12 +138,6 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
-              <div className="mt-4 px-4">
-                <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white w-full flex items-center justify-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  +234 000 0000
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}

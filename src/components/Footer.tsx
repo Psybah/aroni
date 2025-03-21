@@ -43,9 +43,9 @@ const Footer = () => {
     {
       title: "Contact",
       links: [
-        { label: "23 Engineering Avenue, Lagos", path: "#", icon: MapPin },
+        { label: "Wemabod Estate, Ikeja, Lagos", path: "#", icon: MapPin },
         { label: "+234 803 123 4567", path: "tel:+2348031234567", icon: Phone },
-        { label: "info@aroniengineering.com", path: "mailto:info@aroniengineering.com", icon: Mail }
+        { label: "info@aroni-engineering.com", path: "mailto:info@aroni-engineering.com", icon: Mail }
       ]
     }
   ];
@@ -61,7 +61,7 @@ const Footer = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.div variants={childVariants} className="md:col-span-1">
-            <img src="/footer.png" alt="Aroni Engineering Logo" className="h-12 invert" />
+            <img src="/header.png" alt="Aroni Engineering Logo" className="h-12" />
             <p className="mb-4 text-gray-300">
               Providing expert hydraulic, pneumatic, and agricultural solutions across Nigeria with a commitment to excellence and innovation.
             </p>
