@@ -12,7 +12,7 @@ const WhatsAppButton = ({ phoneNumber, accountName }: WhatsAppButtonProps) => {
       <FloatingWhatsApp 
         phoneNumber={phoneNumber}
         accountName={accountName}
-        avatar="/logo.png"
+        avatar="/favicon.ico"
         statusMessage="Typically replies within 1 hour"
         chatMessage="Hello! How can we help you today?"
         allowClickAway={true}
