@@ -126,7 +126,6 @@ The site implements several performance optimizations:
 
 The site can be deployed using any of the following:
 
-- **Lovable**: Click on Share -> Publish through the Lovable interface
 - **Netlify/Vercel**: Connect to your repository for automatic deployments
 - **GitHub Pages**: Build and deploy static files
 - **Custom Hosting**: Upload built files to any web server
