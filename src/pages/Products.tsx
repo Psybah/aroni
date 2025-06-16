@@ -5,6 +5,53 @@ import { motion } from 'framer-motion';
 import Scene3D from '@/components/Scene3D';
 import { Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { useEffect } from 'react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// Custom CSS for swiper styling
+const swiperStyles = `
+  .products-swiper .swiper-button-next,
+  .products-swiper .swiper-button-prev {
+    color: #db5e00 !important;
+    font-weight: bold;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+  }
+
+  .products-swiper .swiper-button-next:after,
+  .products-swiper .swiper-button-prev:after {
+    font-size: 20px;
+  }
+
+  .products-swiper .swiper-pagination-bullet {
+    background: #cbd5e1 !important;
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+  }
+
+  .products-swiper .swiper-pagination-bullet-active {
+    background: #db5e00 !important;
+  }
+
+  .products-swiper .swiper-pagination {
+    bottom: 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .products-swiper .swiper-button-next,
+    .products-swiper .swiper-button-prev {
+      display: none;
+    }
+  }
+`;
 
 const productsData = {
   pneumatic: {
@@ -30,15 +77,42 @@ const productsData = {
   agricultural: {
     title: 'Agricultural Tools and Implements',
     items: [
-      { name: 'Tine Weeders', description: 'Effective weed control implements for agricultural use' },
-      { name: 'Cultivators', description: 'Soil preparation and weed control equipment' },
-      { name: 'Flat Bed Dryers', description: 'Post-harvest grain and crop drying solutions' },
-      { name: 'Ridgers', description: 'Precision ridge-forming implements for row crops' }
+      { 
+        name: 'Cultivator', 
+        description: 'Advanced soil cultivation equipment for optimal crop bed preparation',
+        image: '/products/cultivator.png'
+      },
+      { 
+        name: 'Tine Weeder', 
+        description: 'Precision tine weeding system for effective weed control',
+        image: '/products/tine.png'
+      },
+      { 
+        name: 'Watch Tower', 
+        description: 'Agricultural surveillance and monitoring tower structure',
+        image: '/products/tower.jpeg'
+      },
+      { 
+        name: 'Grain Distribution Bin', 
+        description: 'Efficient grain storage and distribution system for agricultural operations',
+        image: '/products/image.png'
+      }
     ]
   }
 };
 
 const Products = () => {
+  useEffect(() => {
+    // Inject custom styles
+    const styleElement = document.createElement('style');
+    styleElement.textContent = swiperStyles;
+    document.head.appendChild(styleElement);
+    
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -111,21 +185,60 @@ const Products = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="relative"
               >
-                {category.items.map((item, i) => (
-                  <motion.div 
-                    key={i} 
-                    variants={itemVariants}
-                    className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:border-brand-orange transition-colors"
-                  >
-                    <div className="flex items-start mb-2">
-                      <Check className="text-brand-orange w-5 h-5 mt-1 mr-2 flex-shrink-0" />
-                      <h3 className="text-xl font-semibold text-brand-blue">{item.name}</h3>
-                    </div>
-                    <p className="text-gray-600 ml-7">{item.description}</p>
-                  </motion.div>
-                ))}
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={24}
+                  slidesPerView={1}
+                  navigation={true}
+                  pagination={{ 
+                    clickable: true,
+                    bulletClass: 'swiper-pagination-bullet !bg-brand-orange',
+                    bulletActiveClass: 'swiper-pagination-bullet-active !bg-brand-orange'
+                  }}
+                  autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                  }}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                    },
+                  }}
+                  className="products-swiper !pb-12"
+                >
+                  {category.items.map((item, i) => (
+                    <SwiperSlide key={i}>
+                      <motion.div 
+                        variants={itemVariants}
+                        className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:border-brand-orange transition-colors group hover:shadow-lg h-full"
+                      >
+                        {/* Display image if available (for agricultural products) */}
+                        {item.image && (
+                          <div className="h-48 bg-gray-100 overflow-hidden">
+                            <img 
+                              src={item.image} 
+                              alt={item.name}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        )}
+                        
+                        <div className="p-6">
+                          <div className="flex items-start mb-2">
+                            <Check className="text-brand-orange w-5 h-5 mt-1 mr-2 flex-shrink-0" />
+                            <h3 className="text-xl font-semibold text-brand-blue">{item.name}</h3>
+                          </div>
+                          <p className="text-gray-600 ml-7">{item.description}</p>
+                        </div>
+                      </motion.div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </motion.div>
             </div>
           </section>
